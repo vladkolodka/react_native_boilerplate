@@ -1,4 +1,13 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import React from 'react';
+import { Provider } from 'react-redux';
+import App from './src/App';
+import { configureStore } from './src/configureStore';
 
-AppRegistry.registerComponent('djournal', () => App);
+const store = configureStore({});
+
+const AppWithStore = () => <Provider store={store}>
+    <App/>
+</Provider>;
+
+AppRegistry.registerComponent('djournal', () => AppWithStore);

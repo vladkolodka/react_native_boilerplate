@@ -23,12 +23,13 @@ DerivedData
 project.xcworkspace
 
 # Android/IntelliJ
-#
-build/
-.idea
+#build/
+#.idea
+.idea/workspace.xml
+.idea/tasks.xml
 .gradle
 local.properties
-*.iml
+#*.iml
 
 # node.js
 #
