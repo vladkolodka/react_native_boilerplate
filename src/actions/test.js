@@ -1,7 +1,5 @@
-const { TEST } = require('../constants/actionTypes.json');
+import { createActions } from 'reduxsauce';
 
-export function setTested() {
-    return {
-        type: TEST
-    };
-}
+export const { Types, Creators } = createActions({
+    setTested: null
+});

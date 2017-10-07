@@ -1,11 +1,12 @@
-import { createReducer } from '../utils/main';
+import Immutable from 'immutable';
+import { createReducer } from 'reduxsauce';
 
-const { TEST } = require('../constants/actionTypes.json');
+const { SET_TESTED } = require('../actions/test').Types;
 
-const initialState = {
+const initialState = Immutable.fromJS({
     tested: false
-};
+});
 
 export default createReducer(initialState, {
-    [TEST]: (state, action) => ({ tested: true })
+    [SET_TESTED]: (state, action) => state.set('tested', true)
 });

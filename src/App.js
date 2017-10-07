@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-import { setTested } from './actions/test';
+const { setTested } = require('./actions/test').Creators;
 
 class App extends Component<{}> {
     render() {
+        console.log(this.props.setTested);
         return (
             <View>
                 <Text>
@@ -18,6 +18,4 @@ class App extends Component<{}> {
     }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ setTested }, dispatch);
-
-export default connect(({ test }) => ({ tested: test.tested }), mapDispatchToProps)(App);
+export default connect(({ test }) => ({ tested: test.get('tested') }), { setTested })(App);
