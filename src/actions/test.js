@@ -1,5 +1,6 @@
 import { createActions } from 'reduxsauce';
 
 export const { Types, Creators } = createActions({
-    setTested: null
+    setTested: null,
+    sagaTest: null
 });
