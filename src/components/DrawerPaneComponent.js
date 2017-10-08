@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 
-export default class DrawerPaneContainer extends Component {
+export default class DrawerPaneComponent extends Component {
     constructor(props) {
         super(props);
 
