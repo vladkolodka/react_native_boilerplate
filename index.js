@@ -9,7 +9,7 @@ const store = configureStore({});
 
 const AppWithStore = () => <Provider store={store}>
     {/*<App/>*/}
-    <LeftDrawer screenProps={{lections: [1, 2, 3]}} />
+    <LeftDrawer parentNav={{ff: 'tt'}} screenProps={{lections: [1, 2, 3]}} />
 </Provider>;
 
 AppRegistry.registerComponent('djournal', () => AppWithStore);

@@ -5,10 +5,12 @@ export default class DrawerPaneComponent extends Component {
     constructor(props) {
         super(props);
 
-        props.navigation.navigate("DrawerOpen");
+        // props.navigation.navigate("DrawerOpen");
     }
 
     render() {
+        console.log("DRAWER COMPONENT", this.props);
+
         const { items } = this.props;
         const { lections } = this.props.screenProps;
 
