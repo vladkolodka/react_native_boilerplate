@@ -3,6 +3,5 @@ const { saveGists } = require('../actions/test').Creators;
 
 export default function* (api) {
     const gists = (yield call(api.allGists)).data;
-    console.log(gists);
-    yield put(saveGists(gists));
+    yield put(saveGists(gists[0]));
 }

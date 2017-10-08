@@ -7,24 +7,22 @@ const { loadGists } = require('../actions/test').Creators;
 
 class EmptyPage extends Component {
     render() {
-        // console.log("EP", this.props.gists);
         return <Container>
             <Header/>
             <Text>Page</Text>
             <Button title='Load gists' onPress={() => this.props.loadGists()}/>
 
             <View>
-                {/*{*/}
-                    {/*this.props.gists.length > 0 &&*/}
-                    {/*this.props.gists.map(gist => <Text key={gist.id}>{gist.url}</Text>)*/}
-                {/*}*/}
+                {
+                    this.props.gists.map(gist => <Text key={gist.id}>{gist.url}</Text>)
+                }
             </View>
         </Container>;
     }
 }
 
 const mapStateToProps = ({ test }) => ({
-    gists: test.get('gists').toJS()
+    gists: test.get('gists').toArray()
 });
 
 export default connect(mapStateToProps, { loadGists })(EmptyPage);
