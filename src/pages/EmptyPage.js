@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
+import { Container, Header } from 'native-base';
 
 const { loadGists } = require('../actions/test').Creators;
 
 class EmptyPage extends Component {
     render() {
         // console.log("EP", this.props.gists);
-        return <View>
+        return <Container>
+            <Header/>
             <Text>Page</Text>
             <Button title='Load gists' onPress={() => this.props.loadGists()}/>
 
@@ -17,7 +19,7 @@ class EmptyPage extends Component {
                     {/*this.props.gists.map(gist => <Text key={gist.id}>{gist.url}</Text>)*/}
                 {/*}*/}
             </View>
-        </View>;
+        </Container>;
     }
 }
 
