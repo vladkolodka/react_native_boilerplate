@@ -1,21 +1,40 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
-const { setTested, sagaTest } = require('./actions/test').Creators;
+const { login, logout } = require('./actions/authActions').Creators;
 
-class App extends Component<{}> {
+class App extends Component {
     render() {
+        console.log("RENDER::::PROPS", this.props);
         return (
             <View>
-                <Text>
-                    Test status: {this.props.tested ? 'tested' : 'not tested'}
-                </Text>
-                <Button title='Set as tested' onPress={() => this.props.setTested()}/>
-                <Button title='Set as tested with delay' onPress={() => this.props.sagaTest()}/>
+                <Text>Token: {this.props.token}</Text>
+
+                <View style={{
+                    flexDirection: 'row'
+                }}
+                >
+                    <View style={{
+                        width: '50%'
+                    }}
+                    >
+                        <Button title='btn1' onPress={() => this.props.login('email@gmail.com', '12345')}/>
+                    </View>
+                    <View style={{
+                        width: '50%'
+                    }}
+                    >
+                        <Button title='btn2' onPress={this.props.logout}/>
+                    </View>
+                </View>
             </View>
         );
     }
 }
 
-export default connect(({ test }) => ({ tested: test.get('tested') }), { setTested, sagaTest })(App);
+const mapStateToProps = ({ auth }) => ({
+    token: auth.get('token')
+});
+
+export default connect(mapStateToProps, { login, logout })(App);

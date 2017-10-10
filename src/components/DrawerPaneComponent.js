@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { Button, Text, View } from 'react-native';
 
 export default class DrawerPaneComponent extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ export default class DrawerPaneComponent extends Component {
         const { items } = this.props;
         const { lections } = this.props.screenProps;
 
-        return <View style={{backgroundColor: 'gray', flex: 1}}>
+        return <View style={{ backgroundColor: 'gray', flex: 1 }}>
             <Text>Drawer panel</Text>
 
             {items.map((item, index) => {
