@@ -1,20 +1,38 @@
-import { call, put, take } from 'redux-saga/effects';
+import { cancel, fork, put, take } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 
 const { LOGIN, LOGOUT } = require('../actions/authActions').Types;
-const { saveToken } = require('../actions/authActions').Creators;
+const { saveToken, logout } = require('../actions/authActions').Creators;
 
-function* getToken(email, password) {
-    return `${email}${password}`;
-}
+const { AUTH_ERROR } = require('../actions/authStateActions').Types;
+const { setAuthProgressState, setAuthError, resetAuthState } = require('../actions/authStateActions').Creators;
 
-export default function* () {
-    while (true) {
-        const action = yield take(LOGIN);
+function* authorizeRequest(api, email, password) {
+    try {
+        yield put(resetAuthState({ state: true }));
 
-        const token = yield call(getToken, action.email, action.password);
+        // TODO use api call
+        yield delay(2000);
+        const token = `${email}${password}`;
 
         yield put(saveToken(token));
 
-        yield take(LOGOUT);
+    } catch (error) {
+        yield put(setAuthError(error));
+    } finally {
+        yield put(setAuthProgressState(false));
+    }
+}
+
+export default function* loginFlow(api) {
+    while (true) {
+        const loginAction = yield take(LOGIN);
+
+        const authRequestTask = yield fork(authorizeRequest, api, loginAction.email, loginAction.password);
+
+        const action = yield take([LOGOUT, AUTH_ERROR]);
+
+        if (action.type === LOGOUT) yield cancel(authRequestTask);
+        yield call(logout());
     }
 }

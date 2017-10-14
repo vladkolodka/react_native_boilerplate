@@ -7,7 +7,7 @@ import immutableTransform from 'redux-persist-transform-immutable';
 import rootReducer from './reducers';
 import mainSaga from './sagas';
 
-export function configureStore(initialState) {
+export function configureStore(initialState, persistDataLoadedCallback) {
     const sagaMiddleware = createSagaMiddleware();
     const store = createStore(rootReducer, initialState, compose(
         applyMiddleware(sagaMiddleware),
@@ -22,7 +22,7 @@ export function configureStore(initialState) {
         storage: AsyncStorage,
         whitelist: ['auth'],
         transforms: [immutableTransform()]
-    });
+    }, persistDataLoadedCallback).purge();
     sagaMiddleware.run(mainSaga);
     return store;
 }
