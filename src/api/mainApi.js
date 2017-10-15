@@ -16,8 +16,8 @@ const initialize = () => {
         api.setHeader('Authorization', token);
     };
 
-    const login = (email, password) => api.get('/api/login', {
-        Email: email,
+    const login = (login, password) => api.get('/api/login', {
+        Login: login,
         Password: password
     });
 

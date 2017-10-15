@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './src/App';
 import { configureStore } from './src/configureStore';
 const { startup } = require('./src/actions/commonActions').Creators;
+import { Root } from 'native-base';
 
 class AppWithStore extends Component {
     constructor(props) {
@@ -28,8 +29,7 @@ class AppWithStore extends Component {
     render() {
         if(this.state.dataLoaded === false) return null;
         return <Provider store={this.store}>
-            <App />
-            {/*<LeftDrawer parentNav={{ff: 'tt'}} screenProps={{lections: [1, 2, 3]}} />*/}
+            <Root><App /></Root>
         </Provider>;
     }
 }

@@ -8,7 +8,12 @@ import RootNavigator from '../navigators/RootNavigator';
 export default createLoginNavigator = (authState) => StackNavigator({
     Login: { screen: LoginPage },
     RootNavigator: { screen: RootNavigator },
-    AppSettings: { screen: AppSettingsPage }
+    AppSettings: {
+        screen: AppSettingsPage
+    }
 }, {
-    initialRouteName: authState ? 'RootNavigator' : 'Login'
+    initialRouteName: authState ? 'RootNavigator' : 'Login',
+    navigationOptions: {
+        header: null
+    }
 });

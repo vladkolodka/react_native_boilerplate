@@ -7,13 +7,13 @@ const { saveToken, logout } = require('../actions/authActions').Creators;
 const { AUTH_ERROR } = require('../actions/authStateActions').Types;
 const { setAuthProgressState, setAuthError, resetAuthState } = require('../actions/authStateActions').Creators;
 
-function* authorizeRequest(api, email, password) {
+function* authorizeRequest(api, login, password) {
     try {
         yield put(resetAuthState({ state: true }));
 
         // TODO use api call
         yield delay(2000);
-        const token = `${email}${password}`;
+        const token = `${login}${password}`;
 
         yield put(saveToken(token));
 
@@ -28,7 +28,7 @@ export default function* loginFlow(api) {
     while (true) {
         const loginAction = yield take(LOGIN);
 
-        const authRequestTask = yield fork(authorizeRequest, api, loginAction.email, loginAction.password);
+        const authRequestTask = yield fork(authorizeRequest, api, loginAction.login, loginAction.password);
 
         const action = yield take([LOGOUT, AUTH_ERROR]);
 

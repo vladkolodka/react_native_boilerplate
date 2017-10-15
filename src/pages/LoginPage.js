@@ -1,20 +1,122 @@
 import React, { Component } from 'react';
-import { Button, Text, View } from 'react-native';
+import {
+    Body,
+    Button,
+    Container,
+    Content,
+    Form,
+    Header,
+    Input,
+    Item,
+    Label,
+    Spinner,
+    Text,
+    Title,
+    Toast,
+    Fab,
+    Icon
+} from 'native-base';
+import { View } from 'react-native';
+
 import { connect } from 'react-redux';
 
 const { login } = require('../actions/authActions').Creators;
 
 class LoginPage extends Component {
+    static navigationOptions = {
+        header: <Header>
+            <Body>
+            <Title>
+                Sign in
+            </Title>
+            </Body>
+        </Header>
+    };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            login: __DEV__ ? 'user@gmail.com' : '',
+            password: __DEV__ ? 'TestPassword!12345!' : ''
+        };
+
+        this.onLogin = this.onLogin.bind(this);
+    }
+
+    onLogin() {
+
+        if (!this.state.login || !this.state.password){
+            Toast.show({
+                text: 'You must enter login and password!',
+                duration: 2000
+            });
+            return;
+        }
+
+        this.props.login(this.state.login, this.state.password);
+    }
+
+    componentDidMount() {
+        this.password.setNativeProps({
+            text: this.state.password
+        });
+        // console.log("RRR", this.password);
+    }
+
     render() {
-        return <View>
-            <Text>Token: {this.props.token}</Text>
-            <Text>AuthInProgress: {this.props.authInProgress ? 'true' : 'false'}</Text>
-            <Text>AuthErrorMessage: {this.props.authErrorMessage}</Text>
+        return <Container>
+            {
+                this.props.authInProgress &&
+                <View style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    top: 0,
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    left: 0,
+                    right: 0,
+                    zIndex: 999,
+                    opacity: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
+                >
+                    <Spinner color='green'/>
+                </View>
+            }
 
-            <Button title='Login' onPress={() => this.props.login('email@gmail.com', '12345')}/>
-            <Button title='Settings' onPress={() => this.props.navigation.navigate('AppSettings')}/>
+            <Content>
+                <Form>
+                    <Item rounded>
+                        <Input keyboardType='email-address' value={this.state.login} placeholder='Email'
+                               onChangeText={text => this.setState({ login: text })}
+                        />
+                    </Item>
+                    <Item rounded>
+                        <Input ref={component => this.password = component} secureTextEntry placeholder='Password'
+                               onChangeText={text => this.setState({ password: text })}
+                        />
+                    </Item>
+                </Form>
+                <Button full bordered style={{
+                    marginTop: 10,
+                    marginHorizontal: '3%'
+                }}
+                        onPress={this.onLogin}
+                >
+                    <Text>Sign in</Text>
+                </Button>
+            </Content>
+            <Fab
+                style={{
+                    backgroundColor: 'orange'
 
-        </View>;
+                }}
+                onPress={() => this.props.navigation.navigate('AppSettings')}
+            >
+                <Icon name="settings" />
+            </Fab>
+        </Container>;
     }
 }
 
