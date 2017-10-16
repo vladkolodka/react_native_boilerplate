@@ -65,6 +65,7 @@ class LoginPage extends Component {
     }
 
     render() {
+        console.log("NAV 2", this.props.navigation);
         return <Container>
             {
                 this.props.authInProgress &&

@@ -1,8 +1,11 @@
-import Navigator from '../navigators/LoginNavigator';
+import ReduxNavigator from '../navigators/ReduxNavigator';
 
-export const navReducer = (state, action) => {
-    console.log("REDUCER NAV", Navigator);
-    const nextState = Navigator.router.getStateForAction(action, state);
+const initialState = ReduxNavigator.router.getStateForAction(
+    ReduxNavigator.router.getActionForPathAndParams('Root')
+);
 
-    return nextState || state;
+export const nav = (state = initialState, action) =>
+{
+    console.log("ACTION", action);
+    return ReduxNavigator.router.getStateForAction(action, state) || state;
 };

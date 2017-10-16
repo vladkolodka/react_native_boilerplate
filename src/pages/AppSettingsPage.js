@@ -34,7 +34,6 @@ class AppSettingsPage extends Component {
     }
 
     render() {
-        console.log('SETTINGS PAGE', this.props);
         return <View>
             <TextInput
                 placeholder='Api url'

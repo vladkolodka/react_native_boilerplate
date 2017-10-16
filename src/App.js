@@ -1,17 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import createLoginNavigator from './navigators/LoginNavigator';
+import ReduxNavigator from './navigators/ReduxNavigator';
+import { addNavigationHelpers } from 'react-navigation';
 
 class App extends Component {
     render() {
-        const LoginNavigator = createLoginNavigator(this.props.token !== null);
-        return <LoginNavigator/>;
+        return <ReduxNavigator navigation={addNavigationHelpers({
+            dispatch: this.props.dispatch,
+            state: this.props.nav
+        })}
+        />;
+
     }
 }
 
-const mapStateToProps = ({ auth }) => ({
+export default connect(({ nav, auth }) => ({
+    nav: nav,
     token: auth.get('token')
-});
-
-export default connect(mapStateToProps, null)(App);
+}), null)(App);
