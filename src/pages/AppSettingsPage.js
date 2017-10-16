@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TextInput, View, Button, Keyboard } from 'react-native';
+import { TextInput, View, Button as NativeButton, Keyboard } from 'react-native';
 import { Toast } from 'native-base';
+import { Header, Title, Body, Left, Icon, Button, Right } from 'native-base';
+import localization from '../localization';
 
 const { setApiUrl } = require('../actions/commonActions').Creators;
 
 class AppSettingsPage extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        header: <Header>
+            <Left>
+                <Button transparent onPress={() => navigation.goBack()}>
+                    <Icon name='arrow-back' />
+                </Button>
+            </Left>
+            <Body>
+                <Title>
+                    {localization.settings}
+                </Title>
+            </Body>
+            <Right />
+        </Header>
+    });
+
     constructor(props) {
         super(props);
 
@@ -41,7 +59,7 @@ class AppSettingsPage extends Component {
                 onChangeText={text => this.setState({ url: text })}
             />
 
-            <Button title='Save' onPress={this.onSave} />
+            <NativeButton title='Save' onPress={this.onSave} />
         </View>;
     }
 }

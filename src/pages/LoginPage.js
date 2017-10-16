@@ -14,24 +14,29 @@ import {
     Title,
     Toast,
     Fab,
-    Icon
+    Icon,
+    Left,
+    Right
 } from 'native-base';
 import { View } from 'react-native';
 import FullScreenLoader from '../components/FullScreenLoader';
 import { connect } from 'react-redux';
+import localization from '../localization';
 
 const { login } = require('../actions/authActions').Creators;
 
 class LoginPage extends Component {
-    // static navigationOptions = {
-    //     header: <Header>
-    //         <Body>
-    //             <Title>
-    //                 Sign in
-    //         </Title>
-    //         </Body>
-    //     </Header>
-    // };
+    static navigationOptions = {
+        header: <Header>
+            <Left />
+            <Body>
+                <Title>
+                    {localization.signIn}
+                </Title>
+            </Body>
+            <Right />
+        </Header>
+    };
 
     constructor(props) {
         super(props);
@@ -102,7 +107,7 @@ class LoginPage extends Component {
 
             <Fab
                 style={{
-                    backgroundColor: 'orange'
+                    backgroundColor: '#FF6E40'
                 }}
                 onPress={() => this.props.navigation.navigate('AppSettings')}
             >

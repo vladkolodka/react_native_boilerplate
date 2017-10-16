@@ -14,6 +14,6 @@ export default class FullScreenLoader extends Component {
 
 FullScreenLoader.defaultProps = {
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    spinnerColor: 'green',
+    spinnerColor: '#03A9F4',
     isVisible: false
 };

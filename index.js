@@ -4,7 +4,9 @@ import { Provider } from 'react-redux';
 import App from './src/App';
 import { configureStore } from './src/configureStore';
 const { startup } = require('./src/actions/commonActions').Creators;
-import { Root } from 'native-base';
+import { StyleProvider } from 'native-base';
+import getTheme from './native-base-theme/components';
+import material from './native-base-theme/variables/material';
 
 class AppWithStore extends Component {
     constructor(props) {
@@ -29,9 +31,9 @@ class AppWithStore extends Component {
     render() {
         if (this.state.isInitialized === false) return null;
         return <Provider store={this.store}>
-            <Root>
+            <StyleProvider style={getTheme(material)}>
                 <App />
-            </Root>
+            </StyleProvider>
         </Provider>;
     }
 }

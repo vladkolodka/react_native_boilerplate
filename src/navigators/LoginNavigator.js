@@ -14,7 +14,7 @@ export const createLoginNavigator = (authState) => StackNavigator({
         initialRouteName: authState ? 'AppNavigator' : 'Login',
         headerMode: 'float',
         navigationOptions: ({ navigation }) => ({
-            title: navigation.state.routeName,
+            header: null
         })
     }
 );
