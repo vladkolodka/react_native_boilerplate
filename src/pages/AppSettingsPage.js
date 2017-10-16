@@ -16,8 +16,8 @@ class AppSettingsPage extends Component {
         this.onSave = this.onSave.bind(this);
     }
 
-    onSave(){
-        if(!this.state.url){
+    onSave() {
+        if (!this.state.url) {
             Toast.show({
                 duration: 2000,
                 text: 'Api url should not be empty!'
@@ -38,10 +38,10 @@ class AppSettingsPage extends Component {
             <TextInput
                 placeholder='Api url'
                 value={this.state.url}
-                onChangeText={text => this.setState({url: text})}
+                onChangeText={text => this.setState({ url: text })}
             />
 
-            <Button title='Save' onPress={this.onSave}/>
+            <Button title='Save' onPress={this.onSave} />
         </View>;
     }
 }

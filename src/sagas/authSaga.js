@@ -1,10 +1,10 @@
-import { cancel, fork, put, take } from 'redux-saga/effects';
+import { cancel, cancelled, fork, put, take } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 
 const { LOGIN, LOGOUT } = require('../actions/authActions').Types;
 const { saveToken, logout } = require('../actions/authActions').Creators;
 
-const { AUTH_ERROR } = require('../actions/authStateActions').Types;
+const { SET_AUTH_ERROR } = require('../actions/authStateActions').Types;
 const { setAuthProgressState, setAuthError, resetAuthState } = require('../actions/authStateActions').Creators;
 
 function* authorizeRequest(api, login, password) {
@@ -13,14 +13,18 @@ function* authorizeRequest(api, login, password) {
 
         // TODO use api call
         yield delay(2000);
+
+        if (login != 'vlad@mail.com' || password != '1111')
+            throw new Error("Login or password is incorrect.");
+
         const token = `${login}${password}`;
 
         yield put(saveToken(token));
 
     } catch (error) {
-        yield put(setAuthError(error));
+        yield put(setAuthError(error.message));
     } finally {
-        yield put(setAuthProgressState(false));
+        if (yield cancelled()) yield put(setAuthProgressState(false));
     }
 }
 
@@ -30,9 +34,9 @@ export default function* loginFlow(api) {
 
         const authRequestTask = yield fork(authorizeRequest, api, loginAction.login, loginAction.password);
 
-        const action = yield take([LOGOUT, AUTH_ERROR]);
+        const action = yield take([LOGOUT, SET_AUTH_ERROR]);
 
         if (action.type === LOGOUT) yield cancel(authRequestTask);
-        yield call(logout());
+        yield put(logout());
     }
 }

@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import { StackNavigator, withNavigation } from 'react-navigation';
-
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
 import LoginPage from '../pages/LoginPage';
 import AppSettingsPage from '../pages/AppSettingsPage';
 import AppNavigator from './AppNavigator';
-import { connect } from 'react-redux';
 
-createLoginNavigator = (authState) => StackNavigator({
+export const createLoginNavigator = (authState) => StackNavigator({
     Login: { screen: LoginPage },
     AppNavigator: { screen: AppNavigator },
     AppSettings: {
@@ -14,18 +12,9 @@ createLoginNavigator = (authState) => StackNavigator({
     }
 }, {
         initialRouteName: authState ? 'AppNavigator' : 'Login',
-        navigationOptions: {
-            header: null
-        }
-    });
-
-class LoginNavigatorWrapper extends Component {
-    render() {
-        const LoginNavigator = createLoginNavigator(this.props.token !== null);
-        return <LoginNavigator />;
+        headerMode: 'float',
+        navigationOptions: ({ navigation }) => ({
+            title: navigation.state.routeName,
+        })
     }
-}
-
-export default connect(({ auth }) => ({
-    token: auth.get('token')
-}), null)(LoginNavigatorWrapper);
+);

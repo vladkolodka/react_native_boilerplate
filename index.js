@@ -11,7 +11,7 @@ class AppWithStore extends Component {
         super(props);
 
         this.state = {
-            dataLoaded: false
+            isInitialized: false
         };
 
         this.onPersistDataLoaded = this.onPersistDataLoaded.bind(this);
@@ -22,14 +22,16 @@ class AppWithStore extends Component {
     onPersistDataLoaded() {
         this.store.dispatch(startup());
 
-        this.setState({ dataLoaded: true });
+        this.setState({ isInitialized: true });
         // TODO hide splash screen
     }
 
     render() {
-        if(this.state.dataLoaded === false) return null;
+        if (this.state.isInitialized === false) return null;
         return <Provider store={this.store}>
-            <Root><App /></Root>
+            <Root>
+                <App />
+            </Root>
         </Provider>;
     }
 }
