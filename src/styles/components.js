@@ -12,5 +12,16 @@ export default StyleSheet.create({
         opacity: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+
+    logoImageWrapper: {
+        width: 250,
+        height: 250,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#B2DFDB',
+        margin: 20,
+        borderRadius: 125
     }
 });

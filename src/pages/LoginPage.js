@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
 import {
-    Body,
-    Button,
-    Container,
-    Content,
-    Form,
-    Header,
-    Input,
-    Item,
-    Label,
-    Spinner,
-    Text,
-    Title,
-    Toast,
-    Fab,
-    Icon,
-    Left,
-    Right
+    Icon, Body, Button, Container, Content, Form, Header, Input, Item, Label, Spinner, Text,
+    Title, Toast, Fab, Left, Right
 } from 'native-base';
 import { View } from 'react-native';
+import styles from "../styles/loginPage";
+import LogoImage from "../components/LogoImage";
 import FullScreenLoader from '../components/FullScreenLoader';
 import { connect } from 'react-redux';
 import localization from '../localization';
@@ -47,10 +34,10 @@ class LoginPage extends Component {
         };
 
         this.onLogin = this.onLogin.bind(this);
+        this.onOpenSettings = this.onOpenSettings.bind(this);
     }
 
     onLogin() {
-
         if (!this.state.login || !this.state.password) {
             Toast.show({
                 text: 'You must enter login and password!',
@@ -60,6 +47,10 @@ class LoginPage extends Component {
         }
 
         this.props.login(this.state.login, this.state.password);
+    }
+
+    onOpenSettings() {
+        this.props.navigation.navigate('AppSettings');
     }
 
     componentDidMount() {
@@ -82,14 +73,18 @@ class LoginPage extends Component {
         return <Container>
             <FullScreenLoader isVisible={this.props.authInProgress} />
 
-            <Content>
+            <LogoImage />
+
+            <View style={styles.loginBlock}>
                 <Form>
                     <Item>
+                        <Icon name='ios-contact-outline' />
                         <Input keyboardType='email-address' value={this.state.login} placeholder='Email'
                             onChangeText={text => this.setState({ login: text })}
                         />
                     </Item>
                     <Item>
+                        <Icon name='ios-finger-print' />
                         <Input ref={component => this.password = component} secureTextEntry placeholder='Password'
                             onChangeText={text => this.setState({ password: text })}
                         />
@@ -103,9 +98,9 @@ class LoginPage extends Component {
                 >
                     <Text>Sign in</Text>
                 </Button>
-            </Content>
+            </View>
 
-            <Fab
+            <Fab position='topRight'
                 style={{
                     backgroundColor: '#FF6E40'
                 }}
