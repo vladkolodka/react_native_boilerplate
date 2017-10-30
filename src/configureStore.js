@@ -22,7 +22,7 @@ export function configureStore(initialState, persistDataLoadedCallback) {
         storage: AsyncStorage,
         whitelist: ['auth'],
         transforms: [immutableTransform()]
-    }, persistDataLoadedCallback).purge();
+    }, persistDataLoadedCallback)/*.purge()*/;
     sagaMiddleware.run(mainSaga);
     return store;
 }

@@ -4,8 +4,6 @@ const initialState = ReduxNavigator.router.getStateForAction(
     ReduxNavigator.router.getActionForPathAndParams('Root')
 );
 
-export const nav = (state = initialState, action) =>
-{
-    console.log("ACTION", action);
+export const nav = (state = initialState, action) => {
     return ReduxNavigator.router.getStateForAction(action, state) || state;
 };
