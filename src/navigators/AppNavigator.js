@@ -5,8 +5,6 @@ export default StackNavigator({
     Drawer: {
         screen: DrawerNavigator,
         navigationOptions: ({ navigation }) => {
-            console.log("_HEADER", navigation);
-
             return {
                 title: 'Journal'
             };

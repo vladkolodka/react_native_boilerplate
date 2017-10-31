@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text } from "react-native";
+import { View, Text, TouchableHighlight } from "react-native";
 import { connect } from "react-redux";
 
 class JournalListContainer extends Component {
     render() {
         return (
             <View>
-                <Text>Journals list</Text>
+                {this.props.journals.map((j, i) => <TouchableHighlight onPress={() => {
+                    this.props.navigation.navigate('_Journal', { journalId: i })
+                }} key={i}>
+                    <Text>{j.name}</Text>
+                </TouchableHighlight>)}
             </View>
         );
     }
 }
 
-export default connect(null, null)(JournalListContainer);
+export default connect(({ journals }) => ({
+    journals: journals.get('items').toJS()
+}), null)(JournalListContainer);

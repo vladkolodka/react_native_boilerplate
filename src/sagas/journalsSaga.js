@@ -16,6 +16,5 @@ const mockJournals = [
 
 export function* loadJournals(api) {
     // TODO call api
-
     yield put(setJournalsList(mockJournals));
 }
