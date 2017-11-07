@@ -1,6 +1,5 @@
 import { select, call } from 'redux-saga/effects';
 const { SET_API_URL } = require('../actions/commonActions').Types;
-import { loadJournals } from "./journalsSaga";
 
 export default function* startupSaga(api, action) {
     const data = (yield select(state => state.auth)).toObject();
@@ -12,6 +11,6 @@ export default function* startupSaga(api, action) {
 
     if (!data.token) return;
 
-    yield call(loadJournals);
+    // yield call(loadJournals);
     // TODO load journals and other data
 }
