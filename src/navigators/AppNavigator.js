@@ -5,8 +5,13 @@ export default StackNavigator({
     Drawer: {
         screen: DrawerNavigator,
         navigationOptions: ({ navigation }) => {
+
+            const params = navigation.state.routes[0].routes[0].params;
+
+
             return {
-                title: 'Journal'
+                headerTitle: params == null ? '' : (params.journalName + ' (' + (params.journalType ? 'lecture' : 'practice') + ')')
+                // headerTitle: (navigation.state.routes[0].routes[0].params || {}).title
             };
         }
     }

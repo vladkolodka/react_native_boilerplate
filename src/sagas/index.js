@@ -3,7 +3,7 @@ import initApi from '../api/mainApi';
 
 import authSaga from './authSaga';
 import startupSaga from './startupSaga';
-import { loadJournals } from "./journalsSaga";
+import { loadJournals, loadLastOpenedJournal } from "./journalsSaga";
 
 const { STARTUP, SET_API_URL } = require('../actions/commonActions').Types;
 const { LOAD_JOURNALS_LIST } = require('../actions/journalActions').Types;

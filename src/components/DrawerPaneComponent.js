@@ -20,10 +20,6 @@ const Component = (props) => {
     };
 
     return <Container>
-        <Button onPress={action}>
-            <Text>Test</Text>
-        </Button>
-
         {/* <DrawerItems {...props} style={{ flex: 1 }} /> */}
         <JournalListContainer navigation={props.navigation} id={getOpenedJournalId(props.navigation.state.routes[0])} />
         <Button full warning onPress={() => props.logout()}>

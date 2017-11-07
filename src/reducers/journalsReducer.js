@@ -9,7 +9,7 @@ const initialState = Immutable.fromJS({
 });
 
 const journals = createReducer(initialState, {
-    [SET_CURRENT_JOURNAL]: (state, action) => state.set('item', action.journal),
+    [SET_CURRENT_JOURNAL]: (state, action) => state.set('item', action.journalId),
     [SET_JOURNALS_LIST]: (state, action) => state.set('items', Immutable.List(action.items))
 });
 
