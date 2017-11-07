@@ -8,9 +8,4 @@ export default function* startupSaga(api, action) {
     if (action.type === SET_API_URL) return;
 
     api.__setAuthToken(data.token);
-
-    if (!data.token) return;
-
-    // yield call(loadJournals);
-    // TODO load journals and other data
 }

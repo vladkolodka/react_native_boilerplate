@@ -1,9 +1,8 @@
-// import { List } from 'immutable/dist/immutable-nonambient';
-import { } from '../../native-base-theme/components/Right';
 import React, { Component } from 'react';
 import { View, TouchableHighlight } from "react-native";
 import { Content, List, ListItem, Text, Icon, Left, Body, Right } from 'native-base';
 import { connect } from "react-redux";
+import { getParamsForJournalInfo } from '../helpers/journalNavigation';
 
 class JournalListContainer extends Component {
     render() {
@@ -11,21 +10,16 @@ class JournalListContainer extends Component {
             <Content>
                 <List dataArray={this.props.journals}
                     renderRow={item =>
-                        <ListItem onPress={() => this.props.navigation.navigate('_Journal', {
-                            // title: item.name + ' (' + (item.type ? 'lecture' : 'practice') + ')',
-                            journalName: item.name,
-                            journalType: item.type,
-                            journalId: item.id
-                        })}
+                        <ListItem onPress={() => this.props.navigation.navigate('_Journal', getParamsForJournalInfo(item))}
                             button icon style={{ backgroundColor: 'transparent' }}>
                             <Left>
-                                <Icon name={item.type ? 'ios-grid' : 'md-grid'} />
+                                <Icon name={item.type ? 'md-bookmarks' : 'ios-paper-outline'} />
                             </Left>
                             <Body>
                                 <Text>{item.name}</Text>
                             </Body>
                             <Right>
-                                <Icon name="arrow-forward" />
+                                <Icon name="ios-arrow-dropright-outline" />
                             </Right>
                         </ListItem>
                     }

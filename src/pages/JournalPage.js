@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from "react-redux";
+import { getParamsForJournalInfo, getJournalIdFromParams, isParamsHaveJournalData } from '../helpers/journalNavigation';
 
 const { setCurrentJournal } = require('../actions/journalActions').Creators;
 
@@ -9,26 +10,20 @@ class JournalPage extends Component {
     constructor(props) {
         super(props);
 
-        if (props.item != null)
-            props.navigation.setParams({
-                journalName: props.item.name,
-                journalType: props.item.type
-            });
+        if (props.item != null) props.navigation.setParams(getParamsForJournalInfo(props.item));
     }
 
     componentWillReceiveProps(nextProps) {
-        if ((nextProps.navigation.state.params || {}).journalId)
-            nextProps.setCurrentJournal(nextProps.navigation.state.params.journalId);
+        if (isParamsHaveJournalData(nextProps.navigation.state.params))
+            nextProps.setCurrentJournal(getJournalIdFromParams(nextProps.navigation.state.params));
     }
 
 
     render() {
         const { item } = this.props;
-        console.log("Journal Page", this.props);
 
         return <View>
             <Text>{item == null ? 'no item' : item.name}</Text>
-
         </View>;
     }
 }
