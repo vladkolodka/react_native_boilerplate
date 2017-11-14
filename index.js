@@ -40,4 +40,4 @@ class AppWithStore extends Component {
     }
 }
 
-AppRegistry.registerComponent('djournal', () => AppWithStore);
+AppRegistry.registerComponent('ReactNativeBoilerplate', () => AppWithStore);

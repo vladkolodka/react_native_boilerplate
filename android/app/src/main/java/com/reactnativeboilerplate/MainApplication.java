@@ -1,4 +1,4 @@
-package com.djournal;
+package com.reactnativeboilerplate;
 
 import android.app.Application;
 
