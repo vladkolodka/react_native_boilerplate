@@ -23,13 +23,12 @@ DerivedData
 project.xcworkspace
 
 # Android/IntelliJ
-#build/
-#.idea
-.idea/workspace.xml
-.idea/tasks.xml
+#
+build/
+.idea
 .gradle
 local.properties
-#*.iml
+*.iml
 
 # node.js
 #
@@ -40,7 +39,7 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-#*.keystore
+*.keystore
 
 # fastlane
 #
@@ -52,4 +51,3 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
-/.tmp/
