@@ -1,9 +1,9 @@
-# dJournal
+# react-native-boilerplate
 ``` 
-Laboratory work - simple visitor log for university
+Small boilerplate for creating react-native apps.
 ```
 
-**Current react-native version:** `0.49.1` [docs](https://facebook.github.io/react-native/docs/getting-started.html)
+**Current react-native version:** `0.50.3` [docs](https://facebook.github.io/react-native/docs/getting-started.html)
 
 #### Used libraries:
 - [apisauce](https://github.com/infinitered/apisauce)
@@ -16,3 +16,4 @@ Laboratory work - simple visitor log for university
 - [redux-saga](https://redux-saga.js.org/)
 - [redux-persist](https://github.com/rt2zz/redux-persist)
 - [Redux Persist Transform Immutable](https://github.com/rt2zz/redux-persist-transform-immutable)
+- [ReactNativeLocalization](https://github.com/stefalda/ReactNativeLocalization)
