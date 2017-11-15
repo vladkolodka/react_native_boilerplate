@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { View, TextInput, Button } from 'react-native';
-import styles from "../styles/loginPage";
+
 import LogoImage from "../components/LogoImage";
 import { connect } from 'react-redux';
 import localization from '../localization';
 
-import { login } from '../actions/authActions';
+import indexStyles from "../styles";
+import groupStyles from "../styles/groups/authGroup";
+import pageStyles from "../styles/pages/loginPage";
 
+import { login } from '../actions/authActions';
 
 class LoginPage extends Component {
 
@@ -47,7 +50,7 @@ class LoginPage extends Component {
         return <View>
             <LogoImage/>
 
-            <View style={styles.loginBlock}>
+            <View style={pageStyles.loginBlock}>
 
 
                 <TextInput keyboardType='email-address' value={this.state.login} placeholder='Email'
