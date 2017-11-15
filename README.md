@@ -13,3 +13,4 @@ Small boilerplate for creating react-native apps.
 - [redux](http://redux.js.org/docs/introduction/)
 - [react-redux](https://github.com/reactjs/react-redux/blob/master/docs/api.md#api)
 - [ReactNativeLocalization](https://github.com/stefalda/ReactNativeLocalization)
+- [Redux Thunk](https://github.com/gaearon/redux-thunk)

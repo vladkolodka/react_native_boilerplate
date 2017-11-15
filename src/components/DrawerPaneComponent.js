@@ -1,11 +1,15 @@
 import React from 'react';
+import { View, Button } from 'react-native';
 import { DrawerItems } from 'react-navigation';
 import { connect } from 'react-redux';
 
-const { logout } = require('../actions/authActions').Creators;
+import { logout } from '../actions/authActions';
 
-const Component = ({}) => {
-    return <DrawerItems/>;
+const Component = (props) => {
+    return <View>
+        <DrawerItems {...props} />
+        <Button title='Logout' onPress={props.logout}/>
+    </View>;
 };
 
 export default connect(null, { logout })(Component);

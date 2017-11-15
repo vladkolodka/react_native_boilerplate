@@ -5,7 +5,8 @@ import LogoImage from "../components/LogoImage";
 import { connect } from 'react-redux';
 import localization from '../localization';
 
-const { login } = require('../actions/authActions').Creators;
+import { login } from '../actions/authActions';
+
 
 class LoginPage extends Component {
 
@@ -36,7 +37,7 @@ class LoginPage extends Component {
     }
 
     componentWillUpdate(nextProps) {
-        if (this.props.authErrorMessage === null && nextProps.authErrorMessage !== null){
+        if (this.props.authErrorMessage === null && nextProps.authErrorMessage !== null) {
             // TODO error message
         }
     }

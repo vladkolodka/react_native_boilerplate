@@ -1,16 +1,17 @@
 import { create } from 'apisauce';
+import config from '../config';
+
+let apiStorage = null;
 
 const initialize = () => {
+    if(apiStorage !== null) return apiStorage;
+
     const api = create({
-        baseURL: '_no_url__',
+        baseURL: config.api_url,
         headers: {
             'Cache-Control': 'no-cache'
         }
     });
-
-    const __setBaseUrl = (newBaseUrl) => {
-        api.setBaseURL(newBaseUrl);
-    };
 
     const __setAuthToken = (token) => {
         api.setHeader('Authorization', token);
@@ -21,8 +22,8 @@ const initialize = () => {
         Password: password
     });
 
-    return { __setBaseUrl, __setAuthToken, login };
+    apiStorage = { __setAuthToken, login };
+    return apiStorage;
 };
 
 export default initialize;
-
