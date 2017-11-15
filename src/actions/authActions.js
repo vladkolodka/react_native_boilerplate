@@ -1,9 +1,14 @@
-import { Creators } from '../constants/actionTypes';
+import {SAVE_TOKEN, LOGOUT} from '../actionTypes/authTypes';
 
 export const login = (login, password) => (dispatch) => {
-    dispatch(Creators.saveToken('12345'));
+    dispatch({
+        type: SAVE_TOKEN,
+        token: '12345'
+    });
 };
 
 export const logout = (login, password) => (dispatch) => {
-    dispatch(Creators.logout());
+    dispatch({
+        type: LOGOUT
+    });
 };

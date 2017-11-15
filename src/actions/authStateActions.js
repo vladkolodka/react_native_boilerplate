@@ -1,7 +1,7 @@
-import { createActions } from 'reduxsauce';
+// import { createActions } from 'reduxsauce';
 
-export const { Types, Creators } = createActions({
-    setAuthProgressState: ['state'],
-    setAuthError: ['errorMessage'],
-    resetAuthState: { state: false }
-});
+// export const { Types, Creators } = createActions({
+//     setAuthProgressState: ['state'],
+//     setAuthError: ['errorMessage'],
+//     resetAuthState: { state: false }
+// });
