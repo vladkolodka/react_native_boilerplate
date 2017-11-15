@@ -9,7 +9,6 @@ Small boilerplate for creating react-native apps.
 - [apisauce](https://github.com/infinitered/apisauce)
 - [reduxsauce](https://github.com/infinitered/reduxsauce)
 - [immutable](https://facebook.github.io/immutable-js/docs/#/): [examples](https://github.com/facebook/immutable-js/)
-- [native-base](https://docs.nativebase.io/)
 - [react-navigation](https://reactnavigation.org/docs/)
 - [redux](http://redux.js.org/docs/introduction/)
 - [react-redux](https://github.com/reactjs/react-redux/blob/master/docs/api.md#api)

@@ -1,12 +1,9 @@
 import React from 'react';
-import { View } from "react-native";
-import { Content, H1 } from 'native-base';
+import { View, Text } from "react-native";
 import styles from '../styles/components';
 
 export default LogoImage = () => {
-    return <Content>
-        <View style={styles.logoImageWrapper}>
-            <H1>Logo</H1>
-        </View>
-    </Content>;
+    return <View style={styles.logoImageWrapper}>
+            <Text>Logo</Text>
+        </View>;
 };

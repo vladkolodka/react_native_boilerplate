@@ -1,11 +1,11 @@
 import React from 'react';
 import { DrawerNavigator } from 'react-navigation';
-import JournalPage from '../pages/JournalPage';
+import EmptyPage from '../pages/EmptyPage';
 import DrawerPaneComponent from '../components/DrawerPaneComponent';
 
 export default DrawerNavigator({
-    _Journal: {
-        screen: JournalPage
+    Page: {
+        screen: EmptyPage
     }
 }, {
         contentComponent: DrawerPaneComponent,

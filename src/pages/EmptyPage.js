@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text } from 'native-base';
+import { View, Text } from 'react-native';
 
-export default (props) => {
+export default ({}) => {
     return <View>
         <Text>Empty page</Text>
     </View>;
