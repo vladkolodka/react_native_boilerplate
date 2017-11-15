@@ -1,8 +1,8 @@
-import { createReducer } from 'reduxsauce';
+import { createReducer } from '../helpers/tools';
 import Immutable from 'immutable';
 
-const { SAVE_TOKEN, LOGOUT } = require('../constants/actionTypes').Types;
-const { SET_AUTH_PROGRESS_STATE, SET_AUTH_ERROR, RESET_AUTH_STATE } = require('../actions/authStateActions').Types;
+import { SAVE_TOKEN, LOGOUT } from '../actionTypes/authTypes';
+// const { SET_AUTH_PROGRESS_STATE, SET_AUTH_ERROR, RESET_AUTH_STATE } = require('../actions/authStateActions').Types;
 
 const initialAuth = Immutable.fromJS({
     token: null,
@@ -21,9 +21,9 @@ const initialAuthState = Immutable.fromJS({
 
 const authState = createReducer(initialAuthState, {
     [SAVE_TOKEN]: (state, action) => state.set('authInProgress', false),
-    [SET_AUTH_PROGRESS_STATE]: (state, action) => state.set('authInProgress', action.state),
-    [SET_AUTH_ERROR]: (state, action) => state.merge({ authInProgress: false, authErrorMessage: action.errorMessage }),
-    [RESET_AUTH_STATE]: (state, action) => state.merge({ authInProgress: action.state, authErrorMessage: null })
+    // [SET_AUTH_PROGRESS_STATE]: (state, action) => state.set('authInProgress', action.state),
+    // [SET_AUTH_ERROR]: (state, action) => state.merge({ authInProgress: false, authErrorMessage: action.errorMessage }),
+    // [RESET_AUTH_STATE]: (state, action) => state.merge({ authInProgress: action.state, authErrorMessage: null })
 });
 
 export { auth, authState };

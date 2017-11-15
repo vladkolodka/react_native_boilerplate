@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import App from './src/App';
 import { configureStore } from './src/configureStore';
-const { startup } = require('./src/actions/commonActions').Creators;
+// const { startup } = require('./src/actions/commonActions').Creators;
 
 class AppWithStore extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class AppWithStore extends Component {
     }
 
     onPersistDataLoaded() {
-        this.store.dispatch(startup());
+        // this.store.dispatch(startup());
 
         this.setState({ isInitialized: true });
         // TODO hide splash screen

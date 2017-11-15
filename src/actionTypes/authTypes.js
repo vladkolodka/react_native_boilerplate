@@ -1,6 +1,2 @@
-import { createActions, createTypes } from 'reduxsauce';
-
-export const { Types, Creators } = createActions({
-    SAVE_TOKEN: [ 'token' ],
-    logout: null
-});
+export const SAVE_TOKEN = 'SAVE_TOKEN';
+export const LOGOUT = 'LOGOUT';
