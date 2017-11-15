@@ -16,8 +16,6 @@
     "react-navigation": "^1.0.0-beta.13",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-persist": "^4.10.1",
-    "redux-persist-transform-immutable": "^4.3.0",
     "reduxsauce": "^0.7.0"
   },
   "devDependencies": {
