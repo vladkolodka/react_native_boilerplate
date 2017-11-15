@@ -1,0 +1,1 @@
+export const createTaskImage = require('./create.png');

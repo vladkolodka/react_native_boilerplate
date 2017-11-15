@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, Image } from 'react-native';
 
 import LogoImage from "../components/LogoImage";
 import { connect } from 'react-redux';
@@ -8,6 +8,7 @@ import localization from '../localization';
 import indexStyles from "../styles";
 import groupStyles from "../styles/groups/authGroup";
 import pageStyles from "../styles/pages/loginPage";
+import { createTaskImage } from "../img/images"
 
 import { login } from '../actions/authActions';
 
@@ -61,6 +62,7 @@ class LoginPage extends Component {
                 <TextInput ref={component => this.password = component} secureTextEntry placeholder='Password'
                            onChangeText={text => this.setState({ password: text })}
                 />
+                <Image source={createTaskImage} style={{width: 20, height: 20, resizeMode: 'contain'}} />
                 <Button style={{
                     marginTop: 10,
                     marginHorizontal: '3%'
