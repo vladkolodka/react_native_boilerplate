@@ -13,7 +13,6 @@ Small boilerplate for creating react-native apps.
 - [react-navigation](https://reactnavigation.org/docs/)
 - [redux](http://redux.js.org/docs/introduction/)
 - [react-redux](https://github.com/reactjs/react-redux/blob/master/docs/api.md#api)
-- [redux-saga](https://redux-saga.js.org/)
 - [redux-persist](https://github.com/rt2zz/redux-persist)
 - [Redux Persist Transform Immutable](https://github.com/rt2zz/redux-persist-transform-immutable)
 - [ReactNativeLocalization](https://github.com/stefalda/ReactNativeLocalization)
