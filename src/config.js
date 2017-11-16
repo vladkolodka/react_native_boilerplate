@@ -1,3 +1,3 @@
 export default {
-    api_url: 'api.reactnativeboilerplate.com'
+  api_url: 'api.reactnativeboilerplate.com'
 };
