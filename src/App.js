@@ -5,11 +5,12 @@ import {addNavigationHelpers} from 'react-navigation';
 
 class App extends Component {
   render() {
-    return <ReduxNavigator screenProps={{authState: this.props.token !== null}}
-                           navigation={addNavigationHelpers({
-                             dispatch: this.props.dispatch,
-                             state: this.props.nav
-                           })}
+    return <ReduxNavigator 
+      screenProps={{authState: this.props.token !== null}}
+       navigation={addNavigationHelpers({
+         dispatch: this.props.dispatch,
+         state: this.props.nav
+       })}
     />;
   }
 }

@@ -5,5 +5,6 @@ const initialState = ReduxNavigator.router.getStateForAction(
 );
 
 export const nav = (state = initialState, action) => {
+  console.warn(state, action);
   return ReduxNavigator.router.getStateForAction(action, state) || state;
 };

@@ -3,13 +3,14 @@ import {Button, View} from 'react-native';
 import {DrawerItems} from 'react-navigation';
 import {connect} from 'react-redux';
 
-import {logout} from '../actions/authActions';
-
-const Component = (props) => {
-  return <View>
-    <DrawerItems {...props} />
-    <Button title='Logout' onPress={props.logout}/>
-  </View>;
+const DrawerComponent = ({ onRoute }) => {
+  return (
+    <View>
+      <Button title='Logout' onPress={() => { 
+        onRoute('close'); 
+      }}/>
+    </View>
+  );
 };
 
-export default connect(null, {logout})(Component);
+export default DrawerComponent;
