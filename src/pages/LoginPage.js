@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import { 
-  Button, 
-  Image, 
-  TextInput, 
-  View,
-  Text
-} from 'react-native';
+import { Button, Image, Text, TextInput, View } from 'react-native';
 
 import LogoImage from "../components/LogoImage";
 import { connect } from 'react-redux';
@@ -36,43 +30,43 @@ class LoginPage extends Component {
 		this.props.login(this.state.login, this.state.password);
 	}
 
-  componentDidMount() {
-    this.password.setNativeProps({
-      text: this.state.password
-    });
-  }
+	componentDidMount() {
+		this.password.setNativeProps({
+			text: this.state.password
+		});
+	}
 
-  componentWillUpdate(nextProps) {
-    if (this.props.authErrorMessage === null && nextProps.authErrorMessage !== null) {
-        // TODO error message
-    }
-  }
+	componentWillUpdate(nextProps) {
+		if (this.props.authErrorMessage === null && nextProps.authErrorMessage !== null) {
+			// TODO error message
+		}
+	}
 
-  render() {
-    return (
-      <View>
-        <LogoImage/>
+	render() {
+		return (
+			<View>
+				<LogoImage/>
 
-        <View style={pageStyles.loginBlock}>
+				<View style={pageStyles.loginBlock}>
 
-          <TextInput 
-            keyboardType='email-address' value={this.state.login} placeholder='Email'
-            onChangeText={text => this.setState({ login: text })}
-          />
+					<TextInput
+						keyboardType='email-address' value={this.state.login} placeholder='Email'
+						onChangeText={text => this.setState({ login: text })}
+					/>
 
-          <TextInput ref={component => this.password = component} secureTextEntry placeholder='Password'
-                     onChangeText={text => this.setState({ password: text })}
-          />
-          <Image source={createTaskImage} style={{width: 20, height: 20, resizeMode: 'contain'}} />
-          <Text style={pageStyles.loginWelcomeText}>Welcome User</Text>
-          <Button style={{
-            marginTop: 10,
-            marginHorizontal: '3%'
-          }} title='Sign in' onPress={this.onLogin}/>
-        </View>
-      </View>
-    );
-  }
+					<TextInput ref={component => this.password = component} secureTextEntry placeholder='Password'
+					           onChangeText={text => this.setState({ password: text })}
+					/>
+					<Image source={createTaskImage} style={{ width: 20, height: 20, resizeMode: 'contain' }}/>
+					<Text style={pageStyles.loginWelcomeText}>Welcome User</Text>
+					<Button style={{
+						marginTop: 10,
+						marginHorizontal: '3%'
+					}} title='Sign in' onPress={this.onLogin}/>
+				</View>
+			</View>
+		);
+	}
 }
 
 const mapStateToProps = ({ auth, authState }) => ({
