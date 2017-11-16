@@ -1,11 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-const styles = {
+const styles = {};
 
-};
-
-styles.compositeStyle = {
-
-};
+styles.compositeStyle = {};
 
 export default StyleSheet.create(styles);

@@ -4,11 +4,11 @@ import EmptyPage from '../pages/EmptyPage';
 import DrawerPaneComponent from '../components/DrawerPaneComponent';
 
 export default DrawerNavigator({
-    Page: {
-        screen: EmptyPage
-    }
-}, {
-        contentComponent: DrawerPaneComponent,
-        drawerWidth: 300
-    }
+		Page: {
+			screen: EmptyPage
+		}
+	}, {
+		contentComponent: DrawerPaneComponent,
+		drawerWidth: 300
+	}
 );
