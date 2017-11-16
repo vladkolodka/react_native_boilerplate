@@ -6,7 +6,12 @@ const styles = {
 		borderTopWidth: 1,
 		paddingTop: 6,
 		paddingBottom: 10
-	}
+	},
+  loginWelcomeText: {
+    fontFamily: 'Avenir-Medium',
+    color: 'green',
+    fontSize: 15
+  },
 };
 
 styles.loginBlockCustom = {

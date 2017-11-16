@@ -37,6 +37,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		AACC7D449FBA449C930E6A58 /* libReactNativeLocalization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4883E79BD82A474D9A4FC98F /* libReactNativeLocalization.a */; };
+		C19774A85C0A4C1BBD77D957 /* Avenir-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A34E8D9599F40619338660F /* Avenir-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +267,7 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		0005EF73E81647A68F8FE981 /* ReactNativeLocalization.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeLocalization.xcodeproj"; path = "../node_modules/react-native-localization/ReactNativeLocalization.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		4883E79BD82A474D9A4FC98F /* libReactNativeLocalization.a */ = {isa = PBXFileReference; name = "libReactNativeLocalization.a"; path = "libReactNativeLocalization.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		8A34E8D9599F40619338660F /* Avenir-Medium.ttf */ = {isa = PBXFileReference; name = "Avenir-Medium.ttf"; path = "../src/assets/fonts/Avenir-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,6 +515,7 @@
 		0957E50171D54C2AA09E1D80 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
+				8A34E8D9599F40619338660F /* Avenir-Medium.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C19774A85C0A4C1BBD77D957 /* Avenir-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

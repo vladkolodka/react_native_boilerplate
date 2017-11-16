@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Button, Image, TextInput, View } from 'react-native';
+import { 
+  Button, 
+  Image, 
+  TextInput, 
+  View,
+  Text
+} from 'react-native';
 
 import LogoImage from "../components/LogoImage";
 import { connect } from 'react-redux';
@@ -46,7 +52,7 @@ class LoginPage extends Component {
     return (
       <View>
         <LogoImage/>
-        
+
         <View style={pageStyles.loginBlock}>
 
           <TextInput 
@@ -58,6 +64,7 @@ class LoginPage extends Component {
                      onChangeText={text => this.setState({ password: text })}
           />
           <Image source={createTaskImage} style={{width: 20, height: 20, resizeMode: 'contain'}} />
+          <Text style={pageStyles.loginWelcomeText}>Welcome User</Text>
           <Button style={{
             marginTop: 10,
             marginHorizontal: '3%'

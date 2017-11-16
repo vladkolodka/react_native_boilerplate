@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = {
 	text: {
 		color: 'red'
-	}
+	},
 };
 
 styles.textWithBackground = {
