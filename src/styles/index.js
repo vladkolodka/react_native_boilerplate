@@ -1,16 +1,16 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const styles = {
-	text: {
-		color: 'red'
-	},
+  text: {
+    color: 'red'
+  },
 };
 
 styles.textWithBackground = {
-	...styles.text,
+  ...styles.text,
 
-	backgroundColor: 'orange',
-	padding: 10
+  backgroundColor: 'orange',
+  padding: 10
 };
 
 export default StyleSheet.create(styles);

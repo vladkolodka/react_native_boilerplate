@@ -1,4 +1,4 @@
 export default {
-	signIn: 'Sign in',
-	settings: 'Settings'
+  signIn: 'Sign in',
+  settings: 'Settings'
 };
