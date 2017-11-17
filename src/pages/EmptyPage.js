@@ -5,6 +5,7 @@ import {
   Button
 } from 'react-native';
 import indexStyles from '../styles';
+import { NavigationActions } from 'react-navigation';
 
 export default ({navigation}) => {
   console.warn(navigation, 'Nav');
@@ -18,7 +19,14 @@ export default ({navigation}) => {
           marginHorizontal: '3%'
         }} 
         title='Go to Contacts' 
-        onPress={() => {navigation.navigate('Contacts')}}
+        onPress={() => {
+          const navigateAction = NavigationActions.navigate({
+            routeName: 'Contacts',
+            params: {},
+          });
+
+          navigation.dispatch(navigateAction);
+        }}
       />
     </View>
   );

@@ -6,8 +6,11 @@ import {connect} from 'react-redux';
 const DrawerComponent = ({ onRoute }) => {
   return (
     <View>
-      <Button title='Logout' onPress={() => { 
-        onRoute('close'); 
+      <Button title='Contacts' onPress={() => { 
+        onRoute('Contacts'); 
+      }}/>
+      <Button title='Empty' onPress={() => { 
+        onRoute('Page'); 
       }}/>
     </View>
   );
