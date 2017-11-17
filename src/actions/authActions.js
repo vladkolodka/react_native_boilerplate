@@ -1,4 +1,4 @@
-import {LOGOUT, SAVE_TOKEN} from '../actionTypes/authTypes';
+import { LOGOUT, SAVE_TOKEN } from '../actionTypes/authTypes';
 
 export const login = (login, password) => (dispatch) => {
   dispatch({

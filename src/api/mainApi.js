@@ -1,4 +1,4 @@
-import {create} from 'apisauce';
+import { create } from 'apisauce';
 import config from '../config';
 
 let apiStorage = null;

@@ -1,18 +1,17 @@
 import React from 'react';
-import {Button, View} from 'react-native';
-import {DrawerItems} from 'react-navigation';
-import {connect} from 'react-redux';
+import { Button, View } from 'react-native';
+import { connect } from 'react-redux';
 
-const DrawerComponent = ({ onRoute }) => {
+const DrawerComponent = ({onRoute}) => {
   return (
-    <View>
-      <Button title='Contacts' onPress={() => { 
-        onRoute('Contacts'); 
-      }}/>
-      <Button title='Empty' onPress={() => { 
-        onRoute('Page'); 
-      }}/>
-    </View>
+      <View>
+        <Button title='Contacts' onPress={() => {
+          onRoute('Contacts');
+        }}/>
+        <Button title='Empty' onPress={() => {
+          onRoute('Page');
+        }}/>
+      </View>
   );
 };
 

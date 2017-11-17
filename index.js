@@ -1,8 +1,8 @@
-import {AppRegistry} from 'react-native';
-import React, {Component} from 'react';
-import {Provider} from 'react-redux';
+import { AppRegistry } from 'react-native';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import App from './src/App';
-import {configureStore} from './src/configureStore';
+import { configureStore } from './src/configureStore';
 
 // const { startup } = require('./src/actions/commonActions').Creators;
 

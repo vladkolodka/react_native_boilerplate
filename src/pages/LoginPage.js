@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {Button, Image, Text, TextInput, View} from 'react-native';
+import React, { Component } from 'react';
+import { Button, Image, Text, TextInput, View } from 'react-native';
 
 import LogoImage from "../components/LogoImage";
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import pageStyles from "../styles/pages/loginPage";
-import {createTaskImage} from "../img/images"
+import { createTaskImage } from "../img/images";
 
-import {login} from '../actions/authActions';
+import { login } from '../actions/authActions';
 
 class LoginPage extends Component {
 
